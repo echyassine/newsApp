@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
@@ -24,9 +25,12 @@ public class New implements Serializable{
 	private String title;
 	@Column(nullable = false)
 	private String description;
-	private Byte image;
-	private String imageUrl;
+	//private int Array[];
+	@Lob
+	@Column(columnDefinition = "MEDIUMBLOB")
+	private String image;
+	//private String imageUrl;
 	@ManyToOne
 	private Categorie categorie;
-
 }
+
